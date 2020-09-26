@@ -7,13 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB02A8B624E6B6A10008DE7C /* XvWavesRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */; };
 		BB25D01C24DC478800305279 /* XvDataMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = BB25D01A24DC478700305279 /* XvDataMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BB25D02424DC487800305279 /* XvResistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02324DC487800305279 /* XvResistor.swift */; };
+		BB25D02624DD9D1500305279 /* XvPeakDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02524DD9D1500305279 /* XvPeakDetection.swift */; };
+		BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */; };
+		BB25D02A24DDC04900305279 /* XvAttenuator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02924DDC04900305279 /* XvAttenuator.swift */; };
+		BB25D03424DE0F1700305279 /* XvScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D03324DE0F1700305279 /* XvScaler.swift */; };
+		BB2EBBE124E2BF36009C9650 /* XvWaveKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */; };
+		BB2EBBE324E3589E009C9650 /* XvAmplitudeRatios.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */; };
+		BB2EBBE524E4152B009C9650 /* XvMidiCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */; };
+		BBE5142224E8499700D92A60 /* XvWaveMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE5142124E8499700D92A60 /* XvWaveMerger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWavesRatio.swift; sourceTree = "<group>"; };
 		BB25D01724DC478700305279 /* XvDataMapping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvDataMapping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB25D01A24DC478700305279 /* XvDataMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XvDataMapping.h; sourceTree = "<group>"; };
 		BB25D01B24DC478800305279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB25D02324DC487800305279 /* XvResistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvResistor.swift; sourceTree = "<group>"; };
+		BB25D02524DD9D1500305279 /* XvPeakDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvPeakDetection.swift; sourceTree = "<group>"; };
+		BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveFollower.swift; sourceTree = "<group>"; };
+		BB25D02924DDC04900305279 /* XvAttenuator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvAttenuator.swift; sourceTree = "<group>"; };
+		BB25D03324DE0F1700305279 /* XvScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvScaler.swift; sourceTree = "<group>"; };
+		BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveKeyboard.swift; sourceTree = "<group>"; };
+		BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvAmplitudeRatios.swift; sourceTree = "<group>"; };
+		BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvMidiCC.swift; sourceTree = "<group>"; };
+		BBE5142124E8499700D92A60 /* XvWaveMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveMerger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,8 +50,17 @@
 		BB25D00D24DC478700305279 = {
 			isa = PBXGroup;
 			children = (
-				BB25D01924DC478700305279 /* XvDataMapping */,
-				BB25D01824DC478700305279 /* Products */,
+				BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */,
+				BBE5142124E8499700D92A60 /* XvWaveMerger.swift */,
+				BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */,
+				BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */,
+				BB25D02924DDC04900305279 /* XvAttenuator.swift */,
+				BB25D02324DC487800305279 /* XvResistor.swift */,
+				BB25D03324DE0F1700305279 /* XvScaler.swift */,
+				BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */,
+				BB25D02524DD9D1500305279 /* XvPeakDetection.swift */,
+				BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */,
+				BB25D01924DC478700305279 /* Private */,
 			);
 			sourceTree = "<group>";
 		};
@@ -41,15 +70,25 @@
 				BB25D01724DC478700305279 /* XvDataMapping.framework */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
-		BB25D01924DC478700305279 /* XvDataMapping */ = {
+		BB25D01924DC478700305279 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				BB25D02224DC483100305279 /* Basics */,
+				BB25D01824DC478700305279 /* Products */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		BB25D02224DC483100305279 /* Basics */ = {
 			isa = PBXGroup;
 			children = (
 				BB25D01A24DC478700305279 /* XvDataMapping.h */,
 				BB25D01B24DC478800305279 /* Info.plist */,
 			);
-			path = XvDataMapping;
+			path = Basics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,11 +129,12 @@
 		BB25D00E24DC478700305279 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1160;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Jason Snell";
 				TargetAttributes = {
 					BB25D01624DC478700305279 = {
 						CreatedOnToolsVersion = 11.6;
+						LastSwiftMigration = 1160;
 					};
 				};
 			};
@@ -131,6 +171,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB2EBBE524E4152B009C9650 /* XvMidiCC.swift in Sources */,
+				BB02A8B624E6B6A10008DE7C /* XvWavesRatio.swift in Sources */,
+				BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */,
+				BB25D02624DD9D1500305279 /* XvPeakDetection.swift in Sources */,
+				BB25D02A24DDC04900305279 /* XvAttenuator.swift in Sources */,
+				BB2EBBE124E2BF36009C9650 /* XvWaveKeyboard.swift in Sources */,
+				BB25D02424DC487800305279 /* XvResistor.swift in Sources */,
+				BB25D03424DE0F1700305279 /* XvScaler.swift in Sources */,
+				BBE5142224E8499700D92A60 /* XvWaveMerger.swift in Sources */,
+				BB2EBBE324E3589E009C9650 /* XvAmplitudeRatios.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +213,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -226,6 +277,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -260,14 +312,16 @@
 		BB25D02024DC478800305279 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LN2HJCURK9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = XvDataMapping/Info.plist;
+				INFOPLIST_FILE = Private/Basics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -276,6 +330,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonjsnell.XvDataMapping;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,14 +339,16 @@
 		BB25D02124DC478800305279 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = LN2HJCURK9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = XvDataMapping/Info.plist;
+				INFOPLIST_FILE = Private/Basics/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
