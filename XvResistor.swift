@@ -45,7 +45,7 @@ public class XvResistor {
         zeroCheck()
     }
     
-    public func resist(value:Double) -> Double? {
+    public func resist(value:Double) -> Double {
         
         if (value > current) {
             
@@ -81,7 +81,8 @@ public class XvResistor {
         } else {
             
             //no change to report
-            return nil
+            //return incoming value
+            return value
         }
         
         //round to 6 decimals to avoid miniscule numbers and Number.Epsilon (2.7755575615628914e-17)
@@ -90,15 +91,10 @@ public class XvResistor {
         return current
     }
     
-    public func resist(value:CGFloat) -> CGFloat? {
+    public func resist(value:CGFloat) -> CGFloat {
         
         //route to double func
-        if let newCurrent:Double = resist(value: Double(value)){
-            return CGFloat(newCurrent)
-        } else {
-            //no change
-            return nil
-        }
+        return CGFloat(resist(value: Double(value)))
     }
 
     //MARK: Error checking
