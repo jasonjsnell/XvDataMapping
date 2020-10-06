@@ -14,15 +14,8 @@ public class XvAttenuator {
     
     //values are passed in as Double
    
-    fileprivate var minD:Double
-    fileprivate var maxD:Double
-    
-    fileprivate var minCG:CGFloat
-    fileprivate var maxCG:CGFloat
-    
-    //optional to confirm values are 0-255
-    fileprivate var minU:UInt8?
-    fileprivate var maxU:UInt8?
+    fileprivate var min:Double
+    fileprivate var max:Double
     
     //MARK: - Init
     public init(min:Double, max:Double) {
@@ -33,18 +26,8 @@ public class XvAttenuator {
         }
         
         //init default, which is double
-        minD = min
-        maxD = max
-        
-        //init CG
-        minCG = CGFloat(min)
-        maxCG = CGFloat(max)
-        
-        //if 0-255, init UInt8
-        if (min >= 0.0 && min <= 255.0 && max >= 0.0 && max <= 255.0) {
-            minU = UInt8(min)
-            maxU = UInt8(max)
-        }
+        self.min = min
+        self.max = max
         
     }
     
@@ -55,10 +38,10 @@ public class XvAttenuator {
         let newValue:Double = Double(Int(value * 100000)) / 100000
         
         //attenuate
-        if (newValue > maxD) {
-            return maxD
-        } else if (newValue < minD) {
-            return minD
+        if (newValue > max) {
+            return max
+        } else if (newValue < min) {
+            return min
         } else {
             return newValue
         }
@@ -66,33 +49,16 @@ public class XvAttenuator {
     
     public func attenuate(value:CGFloat) -> CGFloat {
         
-        if (value > maxCG) {
-            return maxCG
-        } else if (value < minCG) {
-            return minCG
-        } else {
-            return value
-        }
+        return CGFloat(attenuate(value: Double(value)))
     }
     
-    
-    public func attenuate(value:UInt8) -> UInt8? {
+    public func attenuate(value:Int) -> Int {
         
-        //init uint8 range
-        if (minU != nil && maxU != nil) {
-            
-            //attenuate
-            if (value > maxU!) {
-                return maxU!
-            } else if (value < minU!) {
-                return minU!
-            } else {
-                return value
-            }
-            
-        } else {
-            print("XvAttenuator: Error: minU or maxU are invalid")
-            return nil
-        }
+        return Int(attenuate(value: Double(value)))
+    }
+    
+    public func attenuate(value:UInt8) -> UInt8 {
+        
+        return UInt8(attenuate(value: Double(value)))
     }
 }
