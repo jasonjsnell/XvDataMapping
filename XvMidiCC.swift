@@ -25,18 +25,10 @@ public class XvMidiCC {
         self.controller = controller
         
         //make sure incoming min is within midi range
-        if let midiMin:UInt8 = midiRangeAttn.attenuate(value: min) {
-            self.min = midiMin
-        } else {
-            self.min = 0
-        }
+        self.min = midiRangeAttn.attenuate(value: min)
         
         //same with max
-        if let midiMax:UInt8 = midiRangeAttn.attenuate(value: max) {
-            self.max = midiMax
-        } else {
-            self.max = 127
-        }
+        self.max = midiRangeAttn.attenuate(value: max)
         
         
         scaler = XvScaler(

@@ -32,7 +32,7 @@ public class XvWaveKeyboard {
         
         //error check on incoming values
         if (percent > 1.0 || percent < 0.0) {
-            print("XvwaveKeyboard: Error: Incoming percent needs to be in sbetween 0.0 and 1.0. Returning nil")
+            print("XvwaveKeyboard: Error: Incoming percent needs to be inbetween 0.0 and 1.0. Returning nil")
             return nil
         }
         
@@ -48,12 +48,6 @@ public class XvWaveKeyboard {
         let note:UInt8 = notes[notePosition] + _tune
         
         //attenuate note to safe range
-        if let attnNote:UInt8 = attn.attenuate(value: note) {
-            
-            return attnNote
-            
-        } else {
-            return nil
-        }
+        return attn.attenuate(value: note)
     }
 }
