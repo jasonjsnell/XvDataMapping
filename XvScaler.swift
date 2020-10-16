@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct XvScaleRangeD {
+struct XvScaleRange {
     
     var low:Double
     var high:Double
@@ -25,64 +25,15 @@ struct XvScaleRangeD {
     }
 }
 
-struct XvScaleRangeCG {
-    
-    var low:CGFloat
-    var high:CGFloat
-    var range:CGFloat
-    
-    init (low:CGFloat, high:CGFloat) {
-        self.low = low
-        self.high = high
-        self.range = high-low
-        if (range <= 0.0) {
-            print("XvScaleRangeCG: Error: Low value in range must be less than high value.")
-            fatalError()
-        }
-    }
-}
-
-struct XvScaleRangeU {
-    
-    var low:UInt8
-    var high:UInt8
-    var range:UInt8
-    
-    init (low:UInt8, high:UInt8) {
-        self.low = low
-        self.high = high
-        self.range = high-low
-        
-        if (range <= 0) {
-            print("XvScaleRangeU: Error: Low value", low, "in range must be less than high value", high)
-            fatalError()
-        }
-    }
-}
-
-
-
 public class XvScaler {
     
     //MARK: - VARS
     
-    fileprivate var inputRange:[Double]
-    fileprivate var outputRange:[Double]
-    
-    fileprivate var inputRangeD:XvScaleRangeD
-    fileprivate var outputRangeD:XvScaleRangeD
-    
-    fileprivate var inputRangeCG:XvScaleRangeCG
-    fileprivate var outputRangeCG:XvScaleRangeCG
-    
-    fileprivate var inputRangeU:XvScaleRangeU?
-    fileprivate var outputRangeU:XvScaleRangeU?
+    fileprivate var inputRange:XvScaleRange
+    fileprivate var outputRange:XvScaleRange
     
     //MARK: - INIT
     public init(inputRange:[Double], outputRange:[Double]) {
-        
-        self.inputRange = inputRange
-        self.outputRange = outputRange
         
         //error checking
         //make sure input and output range arrays are only 2 characters,
@@ -99,36 +50,9 @@ public class XvScaler {
         }
         
         //init double range
-        inputRangeD = XvScaleRangeD(low: inputRange[0], high: inputRange[1])
-        outputRangeD = XvScaleRangeD(low: outputRange[0], high: outputRange[1])
+        self.inputRange = XvScaleRange(low: inputRange[0], high: inputRange[1])
+        self.outputRange = XvScaleRange(low: outputRange[0], high: outputRange[1])
         
-        //init CG too
-        inputRangeCG = XvScaleRangeCG(low: CGFloat(inputRange[0]), high: CGFloat(inputRange[1]))
-        outputRangeCG = XvScaleRangeCG(low: CGFloat(outputRange[0]), high: CGFloat(outputRange[1]))
-        
-        //if ranges can work for UInt8 (0-255), then init UInt8
-        
-        if (inputRange[0] >= 0.0 && inputRange[1] <= 255.0) {
-            
-            //turn into UInt8's and compare again to make sure both aren't the same value
-            let inputHigh:UInt8 = UInt8(inputRange[0])
-            let inputLow:UInt8 = UInt8(inputRange[1])
-            
-            if (inputLow < inputHigh) {
-                inputRangeU = XvScaleRangeU(low: inputLow, high: inputHigh)
-            }
-        }
-        
-        if (outputRange[0] >= 0.0 && outputRange[1] <= 255.0) {
-            
-            //turn into UInt8's and compare again to make sure both aren't the same value
-            let outputHigh:UInt8 = UInt8(outputRange[0])
-            let outputLow:UInt8 = UInt8(outputRange[1])
-            
-            if (outputLow < outputHigh) {
-                outputRangeU = XvScaleRangeU(low: outputLow, high: outputHigh)
-            }
-        }
     }
 
     
@@ -157,23 +81,48 @@ public class XvScaler {
     
     public func scale(value:Double) -> Double {
 
-        return((outputRangeD.range * value) / inputRangeD.range) + outputRangeD.low
+        return((outputRange.range * value) / inputRange.range) + outputRange.low
     }
     
     public func scale(value:CGFloat) -> CGFloat {
+        
+        return CGFloat(scale(value: Double(value)))
 
-        return((outputRangeCG.range * value) / inputRangeCG.range) + outputRangeCG.low
     }
     
     //optional so values are confirmed to be 0-255
     public func scale(value:UInt8) -> UInt8? {
         
-        if (inputRangeU != nil && outputRangeU != nil) {
+        //if within range...
+        if (inputRange.high <= 255.0 &&
+                inputRange.low >= 0.0 &&
+                outputRange.high <= 255.0 &&
+                outputRange.low >= 0.0
+        ) {
             
-            return((outputRangeU!.range * value) / inputRangeU!.range) + outputRangeU!.low
+            return UInt8(scale(value: Double(value)))
             
         } else {
             print("XvScaler: Error: UInt8 input or output ranges invalid.")
+            return nil
+        }
+    }
+    
+    public class func scale(dataSet:[Double], toScale:Double) -> [Double]? {
+        
+        //grab min and max
+        if let min:Double = dataSet.min(),
+           let max:Double = dataSet.max()
+        {
+
+            //get range
+            let range:Double = max - min
+        
+            //scale to range and return
+            return dataSet.map { (($0-min) * toScale) / range }
+            
+        } else {
+            print("XvScaler: Error: Unable to get min or max from data set", dataSet)
             return nil
         }
     }
