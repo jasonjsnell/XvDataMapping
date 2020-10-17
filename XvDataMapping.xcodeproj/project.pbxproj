@@ -56,18 +56,18 @@
 		BB25D00D24DC478700305279 = {
 			isa = PBXGroup;
 			children = (
-				BBC8D5032538E79F00A929E9 /* XvGate.swift */,
 				BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */,
 				BBE5142124E8499700D92A60 /* XvWaveMerger.swift */,
 				BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */,
 				BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */,
 				BB25D02924DDC04900305279 /* XvAttenuator.swift */,
+				BBC8D5032538E79F00A929E9 /* XvGate.swift */,
+				BB25D02524DD9D1500305279 /* XvPeakDetection.swift */,
 				BBA1581E252652CB0088EABF /* XvResistorClosed.swift */,
 				BBA15821252652D80088EABF /* XvResistorOpen.swift */,
 				BB25D02324DC487800305279 /* Resistor.swift */,
 				BB25D03324DE0F1700305279 /* XvScaler.swift */,
 				BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */,
-				BB25D02524DD9D1500305279 /* XvPeakDetection.swift */,
 				BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */,
 				BB25D01924DC478700305279 /* Private */,
 			);
