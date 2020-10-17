@@ -65,7 +65,6 @@
 				BB25D02524DD9D1500305279 /* XvPeakDetection.swift */,
 				BBA1581E252652CB0088EABF /* XvResistorClosed.swift */,
 				BBA15821252652D80088EABF /* XvResistorOpen.swift */,
-				BB25D02324DC487800305279 /* Resistor.swift */,
 				BB25D03324DE0F1700305279 /* XvScaler.swift */,
 				BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */,
 				BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */,
@@ -85,6 +84,7 @@
 		BB25D01924DC478700305279 /* Private */ = {
 			isa = PBXGroup;
 			children = (
+				BB25D02324DC487800305279 /* Resistor.swift */,
 				BB25D02224DC483100305279 /* Basics */,
 				BB25D01824DC478700305279 /* Products */,
 			);
