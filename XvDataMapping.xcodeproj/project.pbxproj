@@ -10,7 +10,7 @@
 		BB02A8B624E6B6A10008DE7C /* XvWavesRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */; };
 		BB25D01C24DC478800305279 /* XvDataMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = BB25D01A24DC478700305279 /* XvDataMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB25D02424DC487800305279 /* Resistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02324DC487800305279 /* Resistor.swift */; };
-		BB25D02624DD9D1500305279 /* XvPeakDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02524DD9D1500305279 /* XvPeakDetection.swift */; };
+		BB25D02624DD9D1500305279 /* XvPeakDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02524DD9D1500305279 /* XvPeakDetector.swift */; };
 		BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */; };
 		BB25D02A24DDC04900305279 /* XvAttenuator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02924DDC04900305279 /* XvAttenuator.swift */; };
 		BB25D03424DE0F1700305279 /* XvScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D03324DE0F1700305279 /* XvScaler.swift */; };
@@ -29,7 +29,7 @@
 		BB25D01A24DC478700305279 /* XvDataMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XvDataMapping.h; sourceTree = "<group>"; };
 		BB25D01B24DC478800305279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB25D02324DC487800305279 /* Resistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resistor.swift; sourceTree = "<group>"; };
-		BB25D02524DD9D1500305279 /* XvPeakDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvPeakDetection.swift; sourceTree = "<group>"; };
+		BB25D02524DD9D1500305279 /* XvPeakDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvPeakDetector.swift; sourceTree = "<group>"; };
 		BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveFollower.swift; sourceTree = "<group>"; };
 		BB25D02924DDC04900305279 /* XvAttenuator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvAttenuator.swift; sourceTree = "<group>"; };
 		BB25D03324DE0F1700305279 /* XvScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvScaler.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 				BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */,
 				BB25D02924DDC04900305279 /* XvAttenuator.swift */,
 				BBC8D5032538E79F00A929E9 /* XvGate.swift */,
-				BB25D02524DD9D1500305279 /* XvPeakDetection.swift */,
+				BB25D02524DD9D1500305279 /* XvPeakDetector.swift */,
 				BBA1581E252652CB0088EABF /* XvResistorClosed.swift */,
 				BBA15821252652D80088EABF /* XvResistorOpen.swift */,
 				BB25D03324DE0F1700305279 /* XvScaler.swift */,
@@ -184,7 +184,7 @@
 				BB02A8B624E6B6A10008DE7C /* XvWavesRatio.swift in Sources */,
 				BBA15822252652D80088EABF /* XvResistorOpen.swift in Sources */,
 				BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */,
-				BB25D02624DD9D1500305279 /* XvPeakDetection.swift in Sources */,
+				BB25D02624DD9D1500305279 /* XvPeakDetector.swift in Sources */,
 				BBC8D5042538E79F00A929E9 /* XvGate.swift in Sources */,
 				BBA1581F252652CB0088EABF /* XvResistorClosed.swift in Sources */,
 				BB25D02A24DDC04900305279 /* XvAttenuator.swift in Sources */,
