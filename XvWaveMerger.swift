@@ -8,10 +8,7 @@
 
 import Foundation
 
-public struct Wave {
-    
-    
-}
+
 
 
 /*
@@ -19,8 +16,8 @@ public struct Wave {
  */
 public class XvWaveMerger {
     
-    public var dynamic:Wave = Wave()
-    public var stagnant:Wave = Wave()
+    //public var dynamic:Wave = Wave()
+    //public var stagnant:Wave = Wave()
     
     public func update(wave1:[Double], wave2:[Double]) {
         
