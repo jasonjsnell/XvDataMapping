@@ -35,7 +35,9 @@ public class XvAttenuator {
     //MARK: - Attenuate
     public func attenuate(value:Double) -> Double {
         
-        let newValue:Double = Double(Int(value * 100000)) / 100000
+        var newValue:Double = value
+        if (newValue.isNaN || newValue.isInfinite) { newValue = 0 }
+        newValue = Double(Int(newValue * 100000)) / 100000
         
         //attenuate
         if (newValue > max) {

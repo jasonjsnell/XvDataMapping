@@ -8,6 +8,10 @@
 
 import Foundation
 
+/*
+ Pass in an array of values
+ Get back an array of percentages of the array's max
+ */
 public class XvAmplitudeRatios {
     
     public func compare(amplitudes:[Double]) -> [Double]? {

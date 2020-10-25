@@ -149,6 +149,11 @@ public class Resistor {
     }
     
     //flow of the current
+    public var current:Double {
+        get {
+            return _current
+        }
+    }
     fileprivate var _current:Double = 0.0
    
     init(tolerance:Double, resistance:Double) {

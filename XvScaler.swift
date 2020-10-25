@@ -18,10 +18,6 @@ struct XvScaleRange {
         self.low = low
         self.high = high
         self.range = high-low
-        if (range <= 0.0) {
-            print("XvScaleRangeD: Error: Low value in range must be less than high value.")
-            fatalError()
-        }
     }
 }
 
@@ -41,44 +37,14 @@ public class XvScaler {
             print("XvScaler: Error: inputRange and outputRange each need 2 values for init")
             fatalError()
         }
-            
-        //confirm format as [lowValue, highValue]
-        if (inputRange[0] >= inputRange[1] || outputRange[0] >= outputRange[1]) {
-            
-            print("XvScaler: Error: inputRange and inputRange each need to be formatted [lowValue, highValue")
-            fatalError()
-        }
         
         //init double range
         self.inputRange = XvScaleRange(low: inputRange[0], high: inputRange[1])
         self.outputRange = XvScaleRange(low: outputRange[0], high: outputRange[1])
-        
     }
 
     
     //MARK: - SCALE
-    //scaleToUInt8(double:Double)
-    //scaleToDouble(double:Double)
-    //scaleToCGFloat(double:Double)
-    
-    //input Double, return UInt8
-    public func scaleToUInt8(double:Double) -> UInt8? {
-        
-        print("NEED TO CODE: XvScaler: scaleToUInt8")
-        
-        return nil
-        
-        /*
-        if (inputRangeD != nil){
-            
-        } else {
-            print("XvScaler: Error: Double input range is invalid.")
-            return nil
-        }
-        
-        return 0*/
-    }
-    
     public func scale(value:Double) -> Double {
 
         return((outputRange.range * value) / inputRange.range) + outputRange.low
@@ -87,17 +53,17 @@ public class XvScaler {
     public func scale(value:CGFloat) -> CGFloat {
         
         return CGFloat(scale(value: Double(value)))
-
     }
     
     //optional so values are confirmed to be 0-255
     public func scale(value:UInt8) -> UInt8? {
         
         //if within range...
-        if (inputRange.high <= 255.0 &&
-                inputRange.low >= 0.0 &&
-                outputRange.high <= 255.0 &&
-                outputRange.low >= 0.0
+        if (
+            inputRange.high <= 255.0 &&
+            inputRange.low >= 0.0 &&
+            outputRange.high <= 255.0 &&
+            outputRange.low >= 0.0
         ) {
             
             return UInt8(scale(value: Double(value)))
@@ -127,3 +93,68 @@ public class XvScaler {
         }
     }
 }
+
+/*
+ 
+ Example
+ 
+ inputRangeLow    0.0 - 1.0
+ inputRangeHigh   0.0 - 1.0
+ outputRangeLow   64  - 0
+ outputRangeHigh  64-127
+ 
+ */
+
+/*
+public class XvLogarithmicScaler {
+    
+    fileprivate let _ratio:XvRatio
+    
+    fileprivate var inputRangeLow:XvScaleRange
+    fileprivate var inputRangeHigh:XvScaleRange
+    fileprivate var outputRangeLow:XvScaleRange
+    fileprivate var outputRangeHigh:XvScaleRange
+    
+    //MARK: - INIT
+    public init(
+        inputRangeLow:[Double],
+        inputRangeHigh:[Double],
+        outputRangeLow:[Double],
+        outputRangeHigh:[Double]
+    ) {
+        
+        //error checking
+        //make sure input and output range arrays are only 2 characters,
+        if (
+            inputRangeLow.count != 2 ||
+            inputRangeHigh.count != 2 ||
+            outputRangeLow.count != 2 ||
+            outputRangeHigh.count != 2
+        ) {
+            print("XvScaler: Error: inputRange and outputRange each need 2 values for init")
+            fatalError()
+        }
+        
+        //init double range
+        self.inputRangeLow = XvScaleRange(low: inputRangeLow[0], high: inputRangeLow[1])
+        self.inputRangeHigh = XvScaleRange(low: inputRangeHigh[0], high: inputRangeHigh[1])
+        self.outputRangeLow = XvScaleRange(low: outputRangeLow[0], high: outputRangeLow[1])
+        self.outputRangeHigh = XvScaleRange(low: outputRangeHigh[0], high: outputRangeHigh[1])
+        
+        self._ratio = XvRatio()
+    }
+    
+    //MARK: - SCALE
+    public func scale(values:[Double]) -> Double? {
+
+        if let ratio:Double = _ratio.getRatio(from: values) {
+            
+            print("ratio", ratio)
+        }
+        
+        return nil
+        //return((outputRange.range * value) / inputRange.range) + outputRange.low
+    }
+    
+}
+*/

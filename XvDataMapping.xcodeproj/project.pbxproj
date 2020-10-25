@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB02A8B624E6B6A10008DE7C /* XvWavesRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */; };
+		BB02A8B624E6B6A10008DE7C /* XxRatio.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB02A8B524E6B6A10008DE7C /* XxRatio.swift */; };
 		BB25D01C24DC478800305279 /* XvDataMapping.h in Headers */ = {isa = PBXBuildFile; fileRef = BB25D01A24DC478700305279 /* XvDataMapping.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB25D02624DD9D1500305279 /* XvPeakDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02524DD9D1500305279 /* XvPeakDetector.swift */; };
 		BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D02724DD9D5D00305279 /* XvWaveFollower.swift */; };
@@ -15,7 +15,6 @@
 		BB25D03424DE0F1700305279 /* XvScaler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB25D03324DE0F1700305279 /* XvScaler.swift */; };
 		BB2EBBE124E2BF36009C9650 /* XvWaveKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */; };
 		BB2EBBE324E3589E009C9650 /* XvAmplitudeRatios.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */; };
-		BB2EBBE524E4152B009C9650 /* XvMidiCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */; };
 		BB419826253E2035003A7375 /* XvSignalProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB419825253E2035003A7375 /* XvSignalProcessor.swift */; };
 		BB419840253F2F9E003A7375 /* XvResistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB41983F253F2F9E003A7375 /* XvResistor.swift */; };
 		BBC8D5042538E79F00A929E9 /* XvGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8D5032538E79F00A929E9 /* XvGate.swift */; };
@@ -23,7 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWavesRatio.swift; sourceTree = "<group>"; };
+		BB02A8B524E6B6A10008DE7C /* XxRatio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XxRatio.swift; sourceTree = "<group>"; };
 		BB25D01724DC478700305279 /* XvDataMapping.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvDataMapping.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB25D01A24DC478700305279 /* XvDataMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XvDataMapping.h; sourceTree = "<group>"; };
 		BB25D01B24DC478800305279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,7 +32,6 @@
 		BB25D03324DE0F1700305279 /* XvScaler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvScaler.swift; sourceTree = "<group>"; };
 		BB2EBBE024E2BF36009C9650 /* XvWaveKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveKeyboard.swift; sourceTree = "<group>"; };
 		BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvAmplitudeRatios.swift; sourceTree = "<group>"; };
-		BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvMidiCC.swift; sourceTree = "<group>"; };
 		BB419825253E2035003A7375 /* XvSignalProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvSignalProcessor.swift; sourceTree = "<group>"; };
 		BB41983F253F2F9E003A7375 /* XvResistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvResistor.swift; sourceTree = "<group>"; };
 		BBC8D5032538E79F00A929E9 /* XvGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvGate.swift; sourceTree = "<group>"; };
@@ -54,9 +52,8 @@
 		BB25D00D24DC478700305279 = {
 			isa = PBXGroup;
 			children = (
-				BB02A8B524E6B6A10008DE7C /* XvWavesRatio.swift */,
+				BB02A8B524E6B6A10008DE7C /* XxRatio.swift */,
 				BBE5142124E8499700D92A60 /* XvWaveMerger.swift */,
-				BB2EBBE424E4152B009C9650 /* XvMidiCC.swift */,
 				BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */,
 				BB25D02924DDC04900305279 /* XvAttenuator.swift */,
 				BBC8D5032538E79F00A929E9 /* XvGate.swift */,
@@ -177,8 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB2EBBE524E4152B009C9650 /* XvMidiCC.swift in Sources */,
-				BB02A8B624E6B6A10008DE7C /* XvWavesRatio.swift in Sources */,
+				BB02A8B624E6B6A10008DE7C /* XxRatio.swift in Sources */,
 				BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */,
 				BB25D02624DD9D1500305279 /* XvPeakDetector.swift in Sources */,
 				BBC8D5042538E79F00A929E9 /* XvGate.swift in Sources */,

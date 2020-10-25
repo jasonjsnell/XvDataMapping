@@ -1,5 +1,5 @@
 //
-//  XvWavesRatio.swift
+//  XvRatio.swift
 //  XvDataMapping
 //
 //  Created by Jason Snell on 8/14/20.
@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class XvWavesRatio {
+public class XvRatio {
     
     /*
      
      Pass in two wave magnitudes (values that are above zero)
      Returns positive value if first wave is dominant, and by what percent
-     Returns negative value if first wave is submissove, and by what percent
+     Returns negative value if first wave is submissive, and by what percent
      
      Ex: alphaDeltaRatio
      -0.3 means alpha is submissive to delta by 30%
@@ -22,7 +22,7 @@ public class XvWavesRatio {
      
      */
     
-    public func getRatio(from values:[Double]) -> Double? {
+    public class func getRatio(from values:[Double]) -> Double? {
         
         if (values.count == 2) {
             
@@ -30,7 +30,7 @@ public class XvWavesRatio {
             
         } else {
             
-            print("XvWavesRatio: Error: 2 values need to be passed in to calc a ratio")
+            print("XvRatio: Error: 2 values need to be passed in to calc a ratio")
             return nil
         }
     }
