@@ -22,25 +22,37 @@ public class XvWaveKeyboard {
     
     fileprivate let attn:XvAttenuator = XvAttenuator(min: 0, max: 127)
     
-    public init(with notes:[UInt8]) {
+    public init(notes:[UInt8]) {
         
         self.notes = notes
+        
+        //the number of slots in the 0-1 spectrum is determined by how many notes are in the incoming array
+        //so the slot size is 1.0 / number of slots
+        
         slotSize = 1.0 / Double(notes.count)
     }
     
     public func getNote(from percent:Double) -> UInt8? {
         
         //error check on incoming values
-        if (percent > 1.0 || percent < 0.0) {
+        if (
+            percent < 0 ||
+            percent.isNaN ||
+            percent.isInfinite ||
+            percent > 1.0
+        ) {
             print("XvwaveKeyboard: Error: Incoming percent needs to be inbetween 0.0 and 1.0. Returning nil")
             return nil
         }
         
-        //calc position based on percentage
+        //calc position based on percent
         var notePosition:Int  = Int(percent / slotSize)
         
-        //1.0 becomes top slot
-        if (notePosition >= notes.count) {
+        
+        //keep within array
+        if (notePosition < 0){
+            notePosition = 0
+        } else if (notePosition >= notes.count){
             notePosition = notes.count-1
         }
         
