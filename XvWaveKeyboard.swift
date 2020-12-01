@@ -6,6 +6,9 @@
 //  Copyright © 2020 Jason Snell. All rights reserved.
 //
 
+//deltaKeyboard = XvWaveKeyboard(notes:[36, 40, 43, 48, 52, 55, 60])
+//let note:UInt8 = deltaKeyboard.getNote(from: delta.relative)
+
 import Foundation
 
 public class XvWaveKeyboard {
@@ -32,7 +35,9 @@ public class XvWaveKeyboard {
         slotSize = 1.0 / Double(notes.count)
     }
     
-    public func getNote(from percent:Double) -> UInt8? {
+    public func getNote(from percent:Double) -> UInt8 {
+        
+        var notePosition:Int = 0
         
         //error check on incoming values
         if (
@@ -41,13 +46,13 @@ public class XvWaveKeyboard {
             percent.isInfinite ||
             percent > 1.0
         ) {
-            print("XvwaveKeyboard: Error: Incoming percent needs to be inbetween 0.0 and 1.0. Returning nil")
-            return nil
+            print("XvwaveKeyboard: Error: Incoming percent needs to be inbetween 0.0 and 1.0. Returning value from note position 0")
+            
+        } else {
+            
+            //calc position based on percent
+            notePosition  = Int(percent / slotSize)
         }
-        
-        //calc position based on percent
-        var notePosition:Int  = Int(percent / slotSize)
-        
         
         //keep within array
         if (notePosition < 0){
