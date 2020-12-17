@@ -50,6 +50,12 @@ public class XvScaler {
         return((outputRange.range * value) / inputRange.range) + outputRange.low
     }
     
+    //flips the input and output ranges
+    public func reverseScale(value:Double) -> Double {
+        
+        return((inputRange.range * value) / outputRange.range) + inputRange.low
+    }
+    
     public func scale(value:CGFloat) -> CGFloat {
         
         return CGFloat(scale(value: Double(value)))
