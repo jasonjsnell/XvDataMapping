@@ -21,7 +21,7 @@ public class XvAttenuator {
     public init(min:Double, max:Double) {
         
         if (min >= max) {
-            print("XvAttenuator: Error: min value must be less than max value")
+            print("XvAttenuator: Error: min value", min, "must be less than max value", max)
             fatalError()
         }
         
@@ -29,6 +29,28 @@ public class XvAttenuator {
         self.min = min
         self.max = max
         
+    }
+    
+    //MARK: update ranges
+    
+    //update min
+    public func set(min:Double) {
+        set(min: min, max: self.max)
+    }
+    
+    public func set(max:Double) {
+        set(min: self.min, max: max)
+    }
+    
+    public func set(min:Double, max:Double) {
+        
+        if (min >= max) {
+            print("XvAttenuator: Error: min value", min, "must be less than max value", max)
+            fatalError()
+        }
+    
+        self.min = min
+        self.max = max
     }
     
     
