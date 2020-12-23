@@ -21,7 +21,7 @@ import UIKit
  Can accept Double, CGFloat
  */
 
-public class XvResistorOpen:Resistor {
+public class XvOpenResistor:Resistor {
     
     public override init(changeRate:Double) {
         super.init(changeRate: changeRate)
@@ -43,7 +43,7 @@ public class XvResistorOpen:Resistor {
  Can accept Double, CGFloat
  */
 
-public class XvResistorClosed:Resistor {
+public class XvClosedResistor:Resistor {
     
     //tolerance is the maximum value of the current
     fileprivate var _tolerance:Double
@@ -125,24 +125,24 @@ public class Resistor {
     
     //how fast the current can increase
     
-    public var _increment:Double
+    public var increment:Double
     
     internal func setIncrement(tolerance:Double, resistance:Double) {
         
         //set new increment
-        _increment = tolerance-resistance
+        increment = tolerance-resistance
         
         //error check the new values
         errorCheck(tolerance: tolerance, resistance: resistance)
     }
     
     //how fast the current can decrease
-    public var _decrement:Double
+    public var decrement:Double
     
     internal func setDecrement(tolerance:Double, resistance:Double) {
         
         //set new increment
-        _decrement = tolerance-resistance
+        decrement = tolerance-resistance
         
         //error check the new values
         errorCheck(tolerance: tolerance, resistance: resistance)
@@ -161,8 +161,8 @@ public class Resistor {
         //resistance is how much to block the current
         
         //flow = tolerance - resistance
-        self._increment = tolerance - resistance
-        self._decrement = tolerance - resistance
+        self.increment = tolerance - resistance
+        self.decrement = tolerance - resistance
         
         errorCheck(tolerance: tolerance, resistance: resistance)
     }
@@ -170,21 +170,21 @@ public class Resistor {
     //same as above but can specify unique resistance for upwards flow or downwards flow
     init(tolerance:Double, upwardsResistance:Double, downwardsResistance:Double) {
         
-        self._increment = tolerance - upwardsResistance
-        self._decrement = tolerance - downwardsResistance
+        self.increment = tolerance - upwardsResistance
+        self.decrement = tolerance - downwardsResistance
         
         errorCheck(tolerance: tolerance, resistance: upwardsResistance)
         errorCheck(tolerance: tolerance, resistance: downwardsResistance)
     }
     
     public init(changeRate:Double) {
-        self._increment = changeRate
-        self._decrement = changeRate
+        self.increment = changeRate
+        self.decrement = changeRate
     }
     
     public init(increment:Double, decrement:Double) {
-        self._increment = increment
-        self._decrement = decrement
+        self.increment = increment
+        self.decrement = decrement
     }
     
     public func applyResistance(toCurrent:Double) -> Double {
@@ -195,7 +195,7 @@ public class Resistor {
             //increasing the current:
             
             // if near the top...
-            if ((_current + _increment) >= toCurrent) {
+            if ((_current + increment) >= toCurrent) {
                 
                 //...snap to top
                 _current = toCurrent
@@ -203,7 +203,7 @@ public class Resistor {
             } else {
                 
                 // else move up by the increment
-                _current += _increment
+                _current += increment
             }
         } else if (toCurrent < _current) {
             
@@ -211,7 +211,7 @@ public class Resistor {
             
             // if near the bottom...
 
-            if ((_current - _decrement) <= toCurrent){
+            if ((_current - decrement) <= toCurrent){
                 
                 //... snap to bottom
                 _current = toCurrent
@@ -219,7 +219,7 @@ public class Resistor {
             } else {
                 
                 //else move down by increment
-                _current -= _decrement
+                _current -= decrement
             }
         } else {
             
