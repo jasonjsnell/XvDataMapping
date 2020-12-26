@@ -23,12 +23,12 @@ import UIKit
 
 public class XvOpenResistor:Resistor {
     
-    public override init(changeRate:Double) {
-        super.init(changeRate: changeRate)
+    public override init(changeRate:Double, startingCurrent:Double = 0.0) {
+        super.init(changeRate: changeRate, startingCurrent: startingCurrent)
     }
     
-    public override init(increment:Double, decrement:Double) {
-        super.init(increment: increment, decrement: decrement)
+    public override init(increment:Double, decrement:Double, startingCurrent:Double = 0.0) {
+        super.init(increment: increment, decrement: decrement, startingCurrent: startingCurrent)
     }
 }
 
@@ -79,23 +79,23 @@ public class XvClosedResistor:Resistor {
     }
     
     //MARK: - Init
-    public override init(tolerance:Double, resistance:Double) {
+    public override init(tolerance:Double, resistance:Double, startingCurrent:Double = 0.0) {
         
         self._tolerance = tolerance
         self._upwardsResistance = resistance
         self._downwardsResistance = resistance
         
-        super.init(tolerance: tolerance, resistance: resistance)
+        super.init(tolerance: tolerance, resistance: resistance, startingCurrent: startingCurrent)
     }
     
     //same as above but can specify unique resistance for upwards flow or downwards flow
-    public override init(tolerance:Double, upwardsResistance:Double, downwardsResistance:Double) {
+    public override init(tolerance:Double, upwardsResistance:Double, downwardsResistance:Double, startingCurrent:Double = 0.0) {
         
         self._tolerance = tolerance
         self._upwardsResistance = upwardsResistance
         self._downwardsResistance = downwardsResistance
         
-        super.init(tolerance: tolerance, upwardsResistance: upwardsResistance, downwardsResistance: downwardsResistance)
+        super.init(tolerance: tolerance, upwardsResistance: upwardsResistance, downwardsResistance: downwardsResistance, startingCurrent: startingCurrent)
     }
     
     public override func applyResistance(toCurrent:Double) -> Double {
@@ -154,37 +154,41 @@ public class Resistor {
             return _current
         }
     }
-    fileprivate var _current:Double = 0.0
+    fileprivate var _current:Double
    
-    init(tolerance:Double, resistance:Double) {
+    init(tolerance:Double, resistance:Double, startingCurrent:Double = 0.0) {
         
         //resistance is how much to block the current
         
         //flow = tolerance - resistance
         self.increment = tolerance - resistance
         self.decrement = tolerance - resistance
+        self._current = startingCurrent
         
         errorCheck(tolerance: tolerance, resistance: resistance)
     }
     
     //same as above but can specify unique resistance for upwards flow or downwards flow
-    init(tolerance:Double, upwardsResistance:Double, downwardsResistance:Double) {
+    init(tolerance:Double, upwardsResistance:Double, downwardsResistance:Double, startingCurrent:Double = 0.0) {
         
         self.increment = tolerance - upwardsResistance
         self.decrement = tolerance - downwardsResistance
+        self._current = startingCurrent
         
         errorCheck(tolerance: tolerance, resistance: upwardsResistance)
         errorCheck(tolerance: tolerance, resistance: downwardsResistance)
     }
     
-    public init(changeRate:Double) {
+    public init(changeRate:Double, startingCurrent:Double = 0.0) {
         self.increment = changeRate
         self.decrement = changeRate
+        self._current = startingCurrent
     }
     
-    public init(increment:Double, decrement:Double) {
+    public init(increment:Double, decrement:Double, startingCurrent:Double = 0.0) {
         self.increment = increment
         self.decrement = decrement
+        self._current = startingCurrent
     }
     
     public func applyResistance(toCurrent:Double) -> Double {
