@@ -243,6 +243,11 @@ public class Resistor {
         //route to double func
         return CGFloat(applyResistance(toCurrent: Double(toCurrent)))
     }
+    
+    //when the system needs to bypass the resistor and force a certain value
+    public func force(value:Double) {
+        _current = value
+    }
 
     //MARK: Error checking
     fileprivate func errorCheck(tolerance:Double, resistance:Double){

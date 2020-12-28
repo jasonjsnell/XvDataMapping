@@ -44,4 +44,10 @@ public class XvFollower {
         return _currentValue
     }
     
+    public func force(value:Double) {
+        _currentValue = value
+        _targetValue = value
+        _resistor.force(value: value)
+    }
+    
 }
