@@ -112,21 +112,21 @@ public class XvSignalProcessor {
     
     //MARK: Process signal
     //this is an array the same length as the bins
-    public func process(yDataSet:[Double]) -> XvSignalProcessorPacket? {
+    public func process(stream:[Double]) -> XvSignalProcessorPacket? {
         
         //MARK: Error checking
         //data set needs to match bin length
-        if (yDataSet.count != _bins){
-            print("XvSignalProcessor: Error: Data set length", yDataSet.count, "doesn't match bin length", _bins)
+        if (stream.count != _bins){
+            print("XvSignalProcessor: Error: Data set length", stream.count, "doesn't match bin length", _bins)
         
         } else {
             
             //assign entire array to buffer
-            _buffer = yDataSet
+            _buffer = stream
             
             //check the buffer for errors
             if (_updateBuffer()) {
-                return _process(rawSamples: yDataSet)
+                return _process(rawSamples: stream)
             
             }
         }
