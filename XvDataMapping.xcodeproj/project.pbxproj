@@ -18,6 +18,7 @@
 		BB419826253E2035003A7375 /* XvSignalProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB419825253E2035003A7375 /* XvSignalProcessor.swift */; };
 		BB419840253F2F9E003A7375 /* XvResistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB41983F253F2F9E003A7375 /* XvResistor.swift */; };
 		BB73B02F2597D317008E5726 /* XvFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB73B02E2597D317008E5726 /* XvFollower.swift */; };
+		BBA5B6E625B0BDDE001E1D2F /* XvThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA5B6E525B0BDDE001E1D2F /* XvThreshold.swift */; };
 		BBC8D5042538E79F00A929E9 /* XvGate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC8D5032538E79F00A929E9 /* XvGate.swift */; };
 		BBE5142224E8499700D92A60 /* XvWaveMerger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE5142124E8499700D92A60 /* XvWaveMerger.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +37,7 @@
 		BB419825253E2035003A7375 /* XvSignalProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvSignalProcessor.swift; sourceTree = "<group>"; };
 		BB41983F253F2F9E003A7375 /* XvResistor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvResistor.swift; sourceTree = "<group>"; };
 		BB73B02E2597D317008E5726 /* XvFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvFollower.swift; sourceTree = "<group>"; };
+		BBA5B6E525B0BDDE001E1D2F /* XvThreshold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvThreshold.swift; sourceTree = "<group>"; };
 		BBC8D5032538E79F00A929E9 /* XvGate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvGate.swift; sourceTree = "<group>"; };
 		BBE5142124E8499700D92A60 /* XvWaveMerger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveMerger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +56,7 @@
 		BB25D00D24DC478700305279 = {
 			isa = PBXGroup;
 			children = (
+				BBA5B6E525B0BDDE001E1D2F /* XvThreshold.swift */,
 				BB02A8B524E6B6A10008DE7C /* XxRatio.swift */,
 				BBE5142124E8499700D92A60 /* XvWaveMerger.swift */,
 				BB2EBBE224E3589E009C9650 /* XvAmplitudeRatios.swift */,
@@ -180,6 +183,7 @@
 				BB02A8B624E6B6A10008DE7C /* XxRatio.swift in Sources */,
 				BB25D02824DD9D5D00305279 /* XvWaveFollower.swift in Sources */,
 				BB25D02624DD9D1500305279 /* XvPeakDetector.swift in Sources */,
+				BBA5B6E625B0BDDE001E1D2F /* XvThreshold.swift in Sources */,
 				BB73B02F2597D317008E5726 /* XvFollower.swift in Sources */,
 				BBC8D5042538E79F00A929E9 /* XvGate.swift in Sources */,
 				BB25D02A24DDC04900305279 /* XvAttenuator.swift in Sources */,
