@@ -15,17 +15,12 @@ public class XvThreshold {
     public var threshold:Double
     
     fileprivate var _above:Double = 0
-    fileprivate var _below:Double = 0
+    fileprivate var _value:Double = 0
     
     //accessors
-    public var above:Double {
+    public var value:Double {
         get {
-            return _above
-        }
-    }
-    public var below:Double {
-        get {
-            return _below
+            return _value
         }
     }
     
@@ -39,26 +34,18 @@ public class XvThreshold {
         
         if (signal > threshold) {
             _above = signal-threshold
-            _below = 0
+            _value = _above
         
         } else if (signal < threshold) {
             _above = 0
-            _below = threshold-signal
+            _value = signal-threshold //value is a negative value
         
         } else if (signal == threshold) {
             _above = 0
-            _below = 0
+            _value = 0
         }
         
-        /*
-         max = 1.0
-         threshold = 0.7
-         signal = 0.9
-         
-         above = 0.2
-         
-         */
         //return percent amount above the threshold
-        return above / (max-threshold)
+        return _above / (max-threshold)
     }
 }
