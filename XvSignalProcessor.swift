@@ -271,7 +271,7 @@ public class XvSignalProcessor {
     fileprivate func _updateBuffer() -> Bool{
         
         if (_buffer.count < _bins) {
-            print("XvSignalProcessor: Building buffer", _buffer.count, "/", _bins)
+            //print("XvSignalProcessor: Building buffer", _buffer.count, "/", _bins)
             return false
         }
         
