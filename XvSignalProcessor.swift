@@ -37,15 +37,16 @@ public class XvSignalProcessor {
     public init(
         bins:Int,
         threshold:Double,
-        lag:Int,
+        averagingLag:Int,
+        deviationLag:Int,
         influence:Double
     ) {
         
         //capture vars
         _bins = bins
         _threshold = threshold
-        _averagingLag = lag
-        _deviationLag = lag
+        _averagingLag = averagingLag
+        _deviationLag = deviationLag
         _averagingInfluence = influence
         _deviationInfluence = influence
         

@@ -22,15 +22,22 @@ public class XvRatio {
      
      */
     
+    public init(){}
+    
     public class func getRatio(from values:[Double]) -> Double? {
         
-        if (values.count == 2) {
+        if (
+            values.count == 2 &&
+            values[0].isFinite &&
+            !values[0].isNaN &&
+            values[1].isFinite &&
+            !values[1].isNaN
+        ) {
             
             return (values[0] / values[1]) - 1.0
             
         } else {
             
-            print("XvRatio: Error: 2 values need to be passed in to calc a ratio")
             return nil
         }
     }

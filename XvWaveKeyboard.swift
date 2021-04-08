@@ -20,19 +20,22 @@ public class XvWaveKeyboard {
         set { _tune = newValue }
     }
     
-    fileprivate var notes:[UInt8]
+    public var notes:[UInt8] {
+        get { return _notes }
+    }
+    fileprivate var _notes:[UInt8]
     fileprivate var slotSize:Double
     
     fileprivate let attn:XvAttenuator = XvAttenuator(min: 0, max: 127)
     
     public init(notes:[UInt8]) {
         
-        self.notes = notes
+        self._notes = notes
         
         //the number of slots in the 0-1 spectrum is determined by how many notes are in the incoming array
         //so the slot size is 1.0 / number of slots
         
-        slotSize = 1.0 / Double(notes.count)
+        slotSize = 1.0 / Double(_notes.count)
     }
     
     public func getNote(from percent:Double) -> UInt8 {
@@ -46,7 +49,7 @@ public class XvWaveKeyboard {
             percent.isInfinite ||
             percent > 1.0
         ) {
-            print("XvwaveKeyboard: Error: Incoming percent needs to be inbetween 0.0 and 1.0. Returning value from note position 0")
+            //print("XvwaveKeyboard: Error: Incoming percent needs to be inbetween 0.0 and 1.0. Returning value from note position 0")
             
         } else {
             
@@ -57,13 +60,14 @@ public class XvWaveKeyboard {
         //keep within array
         if (notePosition < 0){
             notePosition = 0
-        } else if (notePosition >= notes.count){
-            notePosition = notes.count-1
+        } else if (notePosition >= _notes.count){
+            notePosition = _notes.count-1
         }
         
         //grab note and add tune (which can be negative or positive)
-        let note:UInt8 = notes[notePosition] + _tune
+        let note:UInt8 = _notes[notePosition] + _tune
         
+        //print("note", note, "pos", notePosition)
         //attenuate note to safe range
         return attn.attenuate(value: note)
     }
