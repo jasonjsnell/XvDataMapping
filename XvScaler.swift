@@ -66,7 +66,6 @@ public class XvScaler {
     //MARK: - SCALE
     public func scale(value:Double) -> Double {
         
-        print("output range", _outputRange.range, "x value", value, "/ input range", _inputRange.range, "+ output low", _outputRange.low, "=", ((_outputRange.range * value) / _inputRange.range) + _outputRange.low)
         return ((_outputRange.range * value) / _inputRange.range) + _outputRange.low
     }
     
