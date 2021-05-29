@@ -25,11 +25,31 @@ public class XvScaler {
     
     //MARK: - VARS
     
-    fileprivate var inputRange:XvScaleRange
-    fileprivate var outputRange:XvScaleRange
+    fileprivate var _inputRange:XvScaleRange
+    public var inputRange:[Double] {
+        get { return [_inputRange.low, _inputRange.high] }
+        set {
+            if (newValue.count != 2) { //error checking
+                print("XvScaler: Error: inputRange needs 2 values")
+                fatalError()
+            }
+            _inputRange = XvScaleRange(low: newValue[0], high: newValue[1])
+        }
+    }
+    fileprivate var _outputRange:XvScaleRange
+    public var outputRange:[Double] {
+        get { return [_outputRange.low, _outputRange.high] }
+        set {
+            if (newValue.count != 2) { //error checking
+                print("XvScaler: Error: outputRange needs 2 values")
+                fatalError()
+            }
+            _outputRange = XvScaleRange(low: newValue[0], high: newValue[1])
+        }
+    }
     
     //MARK: - INIT
-    public init(inputRange:[Double], outputRange:[Double]) {
+    public init(inputRange:[Double] = [0, 1], outputRange:[Double] = [0,1]) {
         
         //error checking
         //make sure input and output range arrays are only 2 characters,
@@ -39,21 +59,21 @@ public class XvScaler {
         }
         
         //init double range
-        self.inputRange = XvScaleRange(low: inputRange[0], high: inputRange[1])
-        self.outputRange = XvScaleRange(low: outputRange[0], high: outputRange[1])
+        self._inputRange = XvScaleRange(low: inputRange[0], high: inputRange[1])
+        self._outputRange = XvScaleRange(low: outputRange[0], high: outputRange[1])
     }
-
     
     //MARK: - SCALE
     public func scale(value:Double) -> Double {
         
-        return((outputRange.range * value) / inputRange.range) + outputRange.low
+        print("output range", _outputRange.range, "x value", value, "/ input range", _inputRange.range, "+ output low", _outputRange.low, "=", ((_outputRange.range * value) / _inputRange.range) + _outputRange.low)
+        return ((_outputRange.range * value) / _inputRange.range) + _outputRange.low
     }
     
     //flips the input and output ranges
     public func reverseScale(value:Double) -> Double {
         
-        return ((value - outputRange.low) / outputRange.range) * inputRange.range
+        return ((value - _outputRange.low) / _outputRange.range) * _inputRange.range
     }
     
     public func scale(value:CGFloat) -> CGFloat {
@@ -66,10 +86,10 @@ public class XvScaler {
         
         //if within range...
         if (
-            inputRange.high <= 255.0 &&
-            inputRange.low >= 0.0 &&
-            outputRange.high <= 255.0 &&
-            outputRange.low >= 0.0
+            _inputRange.high <= 255.0 &&
+            _inputRange.low >= 0.0 &&
+            _outputRange.high <= 255.0 &&
+            _outputRange.low >= 0.0
         ) {
             
             return UInt8(scale(value: Double(value)))
