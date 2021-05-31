@@ -36,6 +36,14 @@ public class XvScaler {
             _inputRange = XvScaleRange(low: newValue[0], high: newValue[1])
         }
     }
+    public var inputCount:Double {
+        get {
+            var count:Double = inputRange[1] - inputRange[0]
+            if (count < 0) { count *= -1 }
+            return count
+        }
+    }
+    
     fileprivate var _outputRange:XvScaleRange
     public var outputRange:[Double] {
         get { return [_outputRange.low, _outputRange.high] }
@@ -45,6 +53,13 @@ public class XvScaler {
                 fatalError()
             }
             _outputRange = XvScaleRange(low: newValue[0], high: newValue[1])
+        }
+    }
+    public var outputCount:Double {
+        get {
+            var count:Double = outputRange[1] - outputRange[0]
+            if (count < 0) { count *= -1 }
+            return count
         }
     }
     
