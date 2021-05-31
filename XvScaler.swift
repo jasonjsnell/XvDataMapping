@@ -95,6 +95,11 @@ public class XvScaler {
         return CGFloat(scale(value: Double(value)))
     }
     
+    public func scale(value:Int) -> Int {
+        
+        return Int(scale(value: Double(value)))
+    }
+    
     //optional so values are confirmed to be 0-255
     public func scale(value:UInt8) -> UInt8? {
         
